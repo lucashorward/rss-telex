@@ -7,16 +7,17 @@ use std::io::{self, Write};
 use std::thread;
 
 #[derive(Parser, Debug)]
-#[command(author, version, about, long_about = None)]
+#[command(version, about, long_about = None)]
 struct Args {
-    /// Name of the person to greet
+    /// How long the delay between refreshes should be, in seconds.
     #[arg(short, long, default_value_t = 5)]
     delay: u64,
 
-    /// Number of times to greet
+    /// Speed of text printing, as a delay in ms between chars (lower = faster).
     #[arg(short, long, default_value_t = 10)]
     speed: u64,
 
+    /// URL to connect to
     #[arg(short, long)]
     url: String,
 }
